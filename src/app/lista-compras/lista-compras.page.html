@@ -1,0 +1,63 @@
+<ion-header >
+  <ion-toolbar class="flex w-full">
+    <ion-title class="text-orange-500 text-center font-bold">
+      LISTA DE COMPRAS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="conteudo h-screen bg-zinc-800 relative">
+  <ion-grid class="lista text-white">
+    <div class="fixed -right-0.5 w-2 h-9 bg-black z-20 top-14" ></div>
+    <ion-row class="bg-zinc-800 fixed z-10 top-14 w-full pr-2.5">
+      <ion-col class="border border-black flex justify-center" size="5"><strong>Produto</strong></ion-col>
+      <ion-col class="border border-black flex justify-center" size="2"><strong>Qtd</strong></ion-col>
+      <ion-col class="border border-black flex justify-center" size="3"><strong>Valor/Un</strong></ion-col>
+      <ion-col class="border border-black flex justify-center" size="2"><strong>Editar</strong></ion-col>
+    </ion-row>
+
+    <ion-row class="relative top-8"  *ngFor="let item of items">
+      <ion-col class="border-r border-b border-l border-black flex justify-center bg-white text-black" size="5">{{ item.nome }}</ion-col>
+      <ion-col class="border-r border-b border-black flex justify-center bg-white text-black" size="2">{{ item.qtd }}</ion-col>
+      <ion-col class="border-r border-b border-black flex justify-center bg-white text-black" size="3">R$ {{ item.preco }}</ion-col>
+      <ion-col class="border-r border-b border-black flex justify-center bg-white text-black" size="2"><input type="checkbox"></ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content>
+
+<div class="flex flex-col w-full h-20 justify-center">
+  <div class="w-full flex h-10">
+    <ion-item class="w-full h-full">
+      TOTAL GASTO: <span class="text-orange-500 pl-1 font-semibold">R$ {{ calculandoTotal() }}</span>
+    </ion-item>
+    <!-- <ion-item class="w-6/12 h-full">
+      Média de Preços: R$ {{ calculandoMedia() }}
+    </ion-item>  -->
+  </div>
+  <button class="bg-orange-500 h-10 uppercase font-semibold" expand="full" (click)="limparLista()">Limpar Lista</button>
+</div>
+
+  
+<div class="bg-neutral-900">
+    <div class="adicionar w-full h-full">
+      <ion-item>
+        <h1 class="font-bold w-full text-orange-500 text-center">ADICIONAR NOVO ITEM <span class="text-white">+</span></h1>
+      </ion-item>  
+      <div class="pl-3 pr-3 pt-4">
+        <ion-input class="mb-2" label="Nome do Item" label-placement="floating" fill="outline" [(ngModel)]="novoItemNome"></ion-input>
+      </div>
+      <div class="pl-3 pr-3">
+        <ion-input class="mb-2" label="Preço do Item (R$)" label-placement="floating" fill="outline"  [(ngModel)]="novoItemPreco"></ion-input>
+      </div> 
+      <div class="pl-3 pr-3">
+        <ion-input class="mb-2" label="Quatidade" label-placement="floating" fill="outline" [(ngModel)]="novaQtdItem"></ion-input>
+      </div> 
+      <div class="flex w-full justify-center gap-1">
+        <button class="w-6/12 bg-orange-500 h-8 uppercase font-semibold animate-pulse" (click)="addItem()">Adicionar Item</button>
+        <button class="w-6/12 bg-orange-500 h-8 uppercase font-semibold hidden" (click)="edtItem()">Editar Item</button>
+      </div> 
+    </div>
+</div>
+
+
+

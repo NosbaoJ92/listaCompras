@@ -3,13 +3,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'lista-compras',
+    loadChildren: () => import('./lista-compras/lista-compras.module').then( m => m.ListaComprasPageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lista-compras',
     pathMatch: 'full'
+  },
+  {
+    path: 'adicionar-item-modal',
+    loadChildren: () => import('./adicionar-item-modal/adicionar-item-modal.module').then( m => m.AdicionarItemModalPageModule)
   },
 ];
 
