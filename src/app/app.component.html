@@ -1,3 +1,32 @@
 <ion-app>
+  <ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Telas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">Menu visível em todas as telas. <br> Escolha a tela:
+
+  <!-- Aqui ele deu exemplo para uso de "href", porém a navegação se tornava pesada e demorada -->
+    <ion-item href="/home">Home Href</ion-item>
+    <ion-item href="/contatos">Contatos Href</ion-item>
+    <ion-item href="/info">Info Href</ion-item>
+
+  <!-- Ele iniciou a estrutura do menu lateral aqui, utilizando a tag "ion-menu-toggle" com os items dentro, para que ao clicar e ir para a tela, o menu fechasse automaticamente -->
+  <ion-menu-toggle>
+
+  <!-- Aqui ele utilizou as propriedades do "router-link" para a navegação, tornando o app mais fluido e utilizou alguns icones desenvolvidos do ionic icons, porém utilizei no meu o link do "cdnjs - fonte awesome" no index + os icones do próprio site "Fonte Awesome" -->
+    <ion-item [routerLink]="['/home']"><i class="fa-solid fa-house"></i> Home RouterLink</ion-item>
+    <ion-item [routerLink]="['/contatos']"><i class="fa-solid fa-address-book"></i> Contatos RouterLink</ion-item>
+    <ion-item [routerLink]="['/info']"><i class="fa-solid fa-circle-info"></i> Info RouterLink</ion-item>
+  </ion-menu-toggle>
+  </ion-content>
+  
+  <!-- Ele inseriu um botão de fechamento dentro do menu lateral para facilitar a experiência de uso -->
+  <ion-menu-toggle><ion-button>Fechar Menu</ion-button></ion-menu-toggle>
+</ion-menu>
+<div class="ion-page" id="main-content">
+
+</div>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
